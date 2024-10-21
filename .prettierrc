@@ -1,5 +1,16 @@
 {
-  "importOrder": ["<BUILTIN_MODULES>", "", "<THIRD_PARTY_MODULES>", "", "^[.]"],
-  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
-  "plugins": ["@ianvs/prettier-plugin-sort-imports"]
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 80,
+  "importOrder": [
+    "^(react?/?([a-zA-Z/]*))$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

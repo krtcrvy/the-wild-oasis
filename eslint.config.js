@@ -1,9 +1,10 @@
-import js from "@eslint/js"
-import pluginQuery from "@tanstack/eslint-plugin-query"
-import react from "eslint-plugin-react"
-import reactHooks from "eslint-plugin-react-hooks"
-import reactRefresh from "eslint-plugin-react-refresh"
-import globals from "globals"
+import js from "@eslint/js";
+import pluginQuery from "@tanstack/eslint-plugin-query";
+import eslintConfigPrettier from "eslint-config-prettier";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import globals from "globals";
 
 export default [
   { ignores: ["dist"] },
@@ -24,6 +25,7 @@ export default [
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
       "@tanstack/query": pluginQuery,
+      eslintConfigPrettier,
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -36,6 +38,10 @@ export default [
         { allowConstantExport: true },
       ],
       "@tanstack/query/exhaustive-deps": "error",
+      "prefer-arrow-callback": ["error"],
+      "prefer-template": ["error"],
+      semi: ["error"],
+      quotes: ["error", "double"],
     },
   },
-]
+];
