@@ -1,5 +1,7 @@
+import AppLayout from "@/components/ui/app-layout";
+
 function Dashboard() {
-  return <div>Dashboard</div>;
+  return <AppLayout />;
 }
 
 export default Dashboard;
