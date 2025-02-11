@@ -36,6 +36,12 @@ export default tseslint.config(
       "prefer-template": ["error"],
       semi: ["error"],
       quotes: ["error", "double"],
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "auto",
+        },
+      ],
       "check-file/filename-naming-convention": [
         "error",
         {
