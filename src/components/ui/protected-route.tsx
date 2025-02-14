@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 
 import { useNavigate } from "react-router";
 
+import { Spinner } from "@/components/ui/spinner";
 import { useUser } from "@/features/authentication/hooks/use-user";
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
@@ -13,9 +14,14 @@ function ProtectedRoute({ children }: { children: ReactNode }) {
     if (!isAuthenticated && !isPending) navigate("/login", { replace: true });
   }, [isAuthenticated, isPending, navigate]);
 
-  if (isPending) return <div>Loading...</div>;
+  if (isPending)
+    return (
+      <div className="flex h-screen items-center justify-center bg-background">
+        <Spinner size="lg" />
+      </div>
+    );
 
-  return children;
+  if (isAuthenticated) return children;
 }
 
 export default ProtectedRoute;
