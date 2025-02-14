@@ -15,6 +15,8 @@ import PageNotFound from "@/pages/page-not-found";
 import Settings from "@/pages/settings";
 import Users from "@/pages/users";
 
+import ProtectedRoute from "./components/ui/protected-route";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -24,7 +26,13 @@ function App() {
         <ReactQueryDevtools initialIsOpen={false} />
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayout />}>
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="bookings" element={<Bookings />} />
