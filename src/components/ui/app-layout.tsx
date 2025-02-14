@@ -10,7 +10,9 @@ function AppLayout() {
       <AppSidebar />
       <SidebarInset>
         <AppHeader />
-        <Outlet />
+        <main className="p-4">
+          <Outlet />
+        </main>
       </SidebarInset>
     </SidebarProvider>
   );
