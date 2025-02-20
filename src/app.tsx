@@ -49,7 +49,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
-      <Toaster position="top-center" richColors />
+      <Toaster position="top-center" richColors toastOptions={{}} closeButton />
     </ThemeProvider>
   );
 }
