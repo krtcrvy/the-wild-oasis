@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { Calendar, GaugeCircle, Hotel, Settings, Users } from "lucide-react";
+import { Link } from "react-router";
 
-import Logo from "@/components/ui/logo";
 import NavMain from "@/components/ui/nav-main";
 import NavUser from "@/components/ui/nav-user";
 import {
@@ -10,8 +10,13 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+
+import Logo from "./logo";
 
 const data = {
   navMain: [
@@ -52,7 +57,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <Logo />
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" asChild>
+              <Link to="/">
+                <Logo className="h-9 w-auto" />
+                <span className="text-xl font-semibold">The Wild Oasis</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />

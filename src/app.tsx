@@ -3,6 +3,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 
 import AppLayout from "@/components/ui/app-layout";
+import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/context/theme-provider";
 import Account from "@/pages/account";
 import Booking from "@/pages/booking";
@@ -48,6 +49,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
+      <Toaster position="top-center" richColors />
     </ThemeProvider>
   );
 }
