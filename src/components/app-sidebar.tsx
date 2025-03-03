@@ -1,13 +1,15 @@
 import * as React from "react";
 
 import {
+  CalendarDays,
   GalleryVerticalEnd,
   Home,
-  Inbox,
-  Search,
-  Sparkles,
+  Hotel,
+  Settings,
+  Users,
 } from "lucide-react";
 
+import NavMain from "@/components/nav-main";
 import {
   Sidebar,
   SidebarContent,
@@ -19,31 +21,32 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 
-import NavMain from "./nav-main";
-
 const data = {
   navMain: [
     {
-      title: "Search",
-      url: "#",
-      icon: Search,
-    },
-    {
-      title: "Ask AI",
-      url: "#",
-      icon: Sparkles,
-    },
-    {
-      title: "Home",
-      url: "#",
+      title: "Dashboard",
+      url: "/dashboard",
       icon: Home,
-      isActive: true,
     },
     {
-      title: "Inbox",
-      url: "#",
-      icon: Inbox,
-      badge: "10",
+      title: "Bookings",
+      url: "/bookings",
+      icon: CalendarDays,
+    },
+    {
+      title: "Cabins",
+      url: "/cabins",
+      icon: Hotel,
+    },
+    {
+      title: "Users",
+      url: "/users",
+      icon: Users,
+    },
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: Settings,
     },
   ],
 };
