@@ -22,7 +22,11 @@ function NavMain({
     <SidebarMenu>
       {items.map((item) => (
         <SidebarMenuItem key={item.title}>
-          <SidebarMenuButton asChild isActive={location.pathname === item.url}>
+          <SidebarMenuButton
+            asChild
+            size="lg"
+            isActive={location.pathname === item.url}
+          >
             <Link to={item.url}>
               <item.icon />
               <span>{item.title}</span>

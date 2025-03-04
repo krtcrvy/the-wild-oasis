@@ -1,13 +1,7 @@
 import * as React from "react";
 
-import {
-  CalendarDays,
-  GalleryVerticalEnd,
-  Home,
-  Hotel,
-  Settings,
-  Users,
-} from "lucide-react";
+import { CalendarDays, Home, Hotel, Settings, Users } from "lucide-react";
+import { Link } from "react-router";
 
 import NavMain from "@/components/nav-main";
 import {
@@ -58,15 +52,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <GalleryVerticalEnd className="size-4" />
-                </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Documentation</span>
-                  <span className="">v1.0.0</span>
-                </div>
-              </a>
+              <Link to="/">
+                <img
+                  src="/images/logo.png"
+                  className="mr-2 h-6 sm:h-9"
+                  alt="The Wild Oasis Logo"
+                />
+                <span className="text-xl font-semibold">The Wild Oasis</span>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
