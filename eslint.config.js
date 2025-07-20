@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import checkFile from "eslint-plugin-check-file";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -16,6 +17,7 @@ export default tseslint.config([
       tseslint.configs.recommended,
       reactHooks.configs["recommended-latest"],
       reactRefresh.configs.vite,
+      pluginQuery.configs["flat/recommended"],
       eslintConfigPrettier,
     ],
     languageOptions: {
