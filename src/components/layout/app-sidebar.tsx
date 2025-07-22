@@ -1,5 +1,15 @@
-import { TentTreeIcon } from "lucide-react";
+import {
+  CalendarIcon,
+  CircleGaugeIcon,
+  HomeIcon,
+  SettingsIcon,
+  TentTreeIcon,
+  UsersIcon,
+} from "lucide-react";
+import { Link } from "react-router";
 
+import NavMain from "@/components/layout/nav-main";
+import NavSecondary from "@/components/layout/nav-secondary";
 import NavUser from "@/components/layout/nav-user";
 import {
   Sidebar,
@@ -16,13 +26,42 @@ const data = {
   user: {
     name: "shadcn",
     email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "https://ui.shadcn.com/avatars/shadcn.jpg",
   },
+  navMain: [
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: CircleGaugeIcon,
+    },
+    {
+      title: "Bookings",
+      url: "/bookings",
+      icon: CalendarIcon,
+    },
+    {
+      title: "Cabins",
+      url: "/cabins",
+      icon: HomeIcon,
+    },
+    {
+      title: "Guests",
+      url: "/guests",
+      icon: UsersIcon,
+    },
+  ],
+  navSecondary: [
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: SettingsIcon,
+    },
+  ],
 };
 
 function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props}>
+    <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -30,15 +69,20 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a href="#">
+              <Link to="/">
                 <TentTreeIcon className="!size-5" />
                 <span className="text-base font-semibold">The Wild Oasis</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent></SidebarContent>
+
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+        <NavSecondary items={data.navSecondary} className="mt-auto" />
+      </SidebarContent>
+
       <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>
